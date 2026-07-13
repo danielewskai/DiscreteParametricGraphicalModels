@@ -38,7 +38,7 @@ For each graph, the analysis first retains only observations that satisfy the gr
 
 The corresponding code is contained in the Jupyter notebook:
 
-    Rydberg_code_adjusted.ipynb
+    Rydberg_code.ipynb
 
 or in the corresponding notebook file in this repository.
 
