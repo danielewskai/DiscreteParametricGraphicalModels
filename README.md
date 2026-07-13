@@ -19,9 +19,9 @@ The first experiment uses binary measurement data from a Rydberg-atom experiment
 
 In this setting, each graph vertex represents an atom. Each measurement shot records whether each atom is observed in the Rydberg-excited state or not. Therefore, every raw observation is already a binary vector
 
-$$
+```math
 \underline{X}^{(i)} \in \{0,1\}^{V}.
-$$
+```
 
 The graph $G=(V,E)$ represents pairwise incompatibility constraints between atoms. If two vertices are connected by an edge, then the two corresponding atoms should not be simultaneously excited in an ideal graph-constrained measurement.
 
@@ -52,14 +52,7 @@ This dataset contains spatial locations of displaced amacrine cells in the retin
 
 Unlike the Rydberg data, the raw amacrine observations are not binary vectors. They are spatial point locations. Therefore, the code first transforms the point pattern into binary local occupancy vectors.
 
-The observation window is normalized to $[0,1]^2$ and divided into $12 \times 12$ local blocks. Each local block is then divided into a $2 \times 2$ grid:
-
-$$
-\begin{array}{cc}
-v_3 & v_4\\
-v_1 & v_2
-\end{array}
-$$
+The observation window is normalized to $[0,1]^2$ and divided into $12 \times 12$ local blocks. Each local block is then divided into a $2 \times 2$ grid.
 
 Each block gives one binary vector
 
