@@ -108,7 +108,7 @@ The activity parameters $\underline{y}$ are estimated from the data. Therefore, 
 Let $G=(V,E)$ be a graph. In the case $r=1$, the support of the model consists of binary vectors satisfying the graph constraints:
 
 $$
-\mathcal{N}_{G,1}=\left\{\underline{x}\in\{0,1\}^{V}:x_u x_v=0\text{ for every } uv\in E\right\}.
+\mathcal{N}_{G,1}={\underline{x}\in\{0,1\}^{V}:x_u x_v=0\text{ for every } uv\in E}.
 $$
 
 Equivalently, no two adjacent vertices of $G$ can be simultaneously active.
