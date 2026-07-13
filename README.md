@@ -107,9 +107,16 @@ The activity parameters $\underline{y}$ are estimated from the data. Therefore, 
 
 Let $G=(V,E)$ be a graph. In the case $r=1$, the support of the model consists of binary vectors satisfying the graph constraints:
 
-$$
-\mathcal{N}_{G,1}=\{\underline{x}\in\{0,1\}^{V}:x_u x_v=0\text{ for every } uv\in E\}.
-$$
+```math
+\mathcal{N}_{G,1}
+=
+\left\{
+\underline{x}\in\{0,1\}^{V}
+:
+x_u x_v=0
+\ \forall\, uv\in E
+\right\}.
+```
 
 Equivalently, no two adjacent vertices of $G$ can be simultaneously active.
 
@@ -168,9 +175,20 @@ The p-value is computed by parametric bootstrap:
 
 The bootstrap p-value is computed as
 
-$$
-p_{\mathrm{val}}=\frac{1+\#\{T_b\ge T_{\mathrm{obs}}\}}{B+1},
-$$
+```math
+p_{\mathrm{val}}
+=
+\frac{
+1+
+\left|
+\left\{
+b : T_b \ge T_{\mathrm{obs}}
+\right\}
+\right|
+}{
+B+1
+}.
+```
 
 where $B$ is the number of bootstrap replications.
 
