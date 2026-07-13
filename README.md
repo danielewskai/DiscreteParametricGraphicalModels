@@ -153,9 +153,9 @@ where $n_{\mathrm{adm}}$ is the number of admissible observations.
 
 The likelihood-ratio statistic is
 
-$$
+```math
 T_{\mathrm{LR}}=2\sum_{\underline{x}\in\mathcal{N}_{G,1}}O_{\underline{x}}\log\frac{O_{\underline{x}}}{E_{\underline{x}}},
-$$
+```
 
 with the convention that terms with $O_{\underline{x}}=0$ are equal to zero.
 
