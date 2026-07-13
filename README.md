@@ -197,7 +197,7 @@ Open the notebook
 
 and run all cells.
 
-The notebook loads the data, defines the graph, filters observations to the graph-constrained support, fits $\mathrm{mult}_G(1,\underline{y})$, computes $T_{\mathrm{LR}}$, and evaluates the p-value by parametric bootstrap with refitting.
+The notebook loads the data, defines the graph, filters observations to the graph-constrained support, fits $\mathrm{mult}\_G(1,\underline{y})$, computes $T_{\mathrm{LR}}$, and evaluates the p-value by parametric bootstrap with refitting.
 
 ### Amacrine experiment
 
