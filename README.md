@@ -1,13 +1,10 @@
-# Graphical Count Models: Real-Data Experiments
+# Graphical Count Models: Real-Data Experiment
 
-This repository contains code for real-data experiments illustrating goodness-of-fit procedures for graphical count models, with a focus on the case $r=1$ of the graphical multinomial model $\mathrm{mult}_G(1,\underline{y})$.
+This repository contains code for real-data experiment illustrating goodness-of-fit procedures for graphical count models, with a focus on the case $r=1$ of the graphical multinomial model $\mathrm{mult}_G(1,\underline{y})$.
 
-The repository contains two real-data examples:
+The repository contains one real-data example:
 
 1. a Rydberg-atom experiment, where each observation is a binary measurement shot;
-2. a spatial point-pattern experiment based on retinal amacrine cells, where binary observations are obtained by discretizing local spatial blocks.
-
-Both examples use the same support-restricted goodness-of-fit methodology.
 
 ---
 
@@ -44,46 +41,9 @@ or in the corresponding notebook file in this repository.
 
 ---
 
-### 2. Amacrine-cell point-pattern data
-
-The second experiment uses the `amacrine` dataset from the R package `spatstat.data`.
-
-This dataset contains spatial locations of displaced amacrine cells in the retina of a rabbit. The point pattern is marked by cell type, with two types usually denoted as `"on"` and `"off"`. In the main analysis, only the `"on"` cells are used.
-
-Unlike the Rydberg data, the raw amacrine observations are not binary vectors. They are spatial point locations. Therefore, the code first transforms the point pattern into binary local occupancy vectors.
-
-The observation window is normalized to $[0,1]^2$ and divided into $12 \times 12$ local blocks. Each local block is then divided into a $2 \times 2$ grid.
-
-Each block gives one binary vector
-
-$$
-\underline{X}^{(i)}=(X^{(i)}_1,X^{(i)}_2,X^{(i)}_3,X^{(i)}_4)\in\{0,1\}^4,
-$$
-
-where $X^{(i)}_j=1$ if at least one `"on"` amacrine cell falls in subregion $v_j$ of block $i$, and $X^{(i)}_j=0$ otherwise.
-
-The graph used in the amacrine experiment is the cycle $C_4$ on the local $2\times2$ grid:
-
-$$
-v_1-v_2,\qquad
-v_2-v_4,\qquad
-v_4-v_3,\qquad
-v_3-v_1.
-$$
-
-Thus, admissible configurations are those in which no two side-adjacent subregions are simultaneously occupied.
-
-The corresponding code is contained in the R script:
-
-    amacrine_on_C4.R
-
-or in the corresponding R file in this repository.
-
----
-
 ## Statistical pipeline
 
-Both experiments use the same statistical pipeline:
+The experiment use the below statistical pipeline:
 
 1. construct binary observations $\underline{X}^{(1)},\ldots,\underline{X}^{(n)}\in\{0,1\}^V$;
 2. fix a graph $G=(V,E)$;
@@ -137,7 +97,7 @@ In the experiments in this repository, the support $\mathcal{N}_{G,1}$ is small 
 
 ## Goodness-of-fit procedure
 
-For each experiment, binary observations are first filtered to the graph-constrained support:
+For the experiment, binary observations are first filtered to the graph-constrained support:
 
 $$
 \underline{X}^{(i)}\in\mathcal{N}_{G,1}.
@@ -187,7 +147,7 @@ where $B$ is the number of bootstrap replications.
 
 ---
 
-## How to run the experiments
+## How to run the experiment
 
 ### Rydberg experiment
 
@@ -198,28 +158,3 @@ Open the notebook
 and run all cells.
 
 The notebook loads the data, defines the graph, filters observations to the graph-constrained support, fits $\mathrm{mult}\_G(1,\underline{y})$, computes $T_{\mathrm{LR}}$, and evaluates the p-value by parametric bootstrap with refitting.
-
-### Amacrine experiment
-
-Open R or RStudio and run:
-
-    source("amacrine_on_C4.R")
-
-The script returns the main object
-
-    summary_result
-
-and the goodness-of-fit table
-
-    gof_table
-
-The output includes:
-
-- the number of total observations;
-- the number and fraction of admissible observations;
-- the graph-constrained support;
-- observed counts on the support;
-- fitted activity parameters $\widehat{\underline{y}}$;
-- the likelihood-ratio statistic $T_{\mathrm{LR}}$;
-- the bootstrap p-value;
-- expected counts and Pearson residuals for admissible configurations.
